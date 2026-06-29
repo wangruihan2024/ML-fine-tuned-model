@@ -1,6 +1,12 @@
 # SmolVLA Fine-Tuning Project
 
 <p align="center">
+  <a href="training_images/project_poster/CS3308_02ML_poster.pdf">
+    <img src="training_images/project_poster/CS3308_02ML_poster.png" alt="Project poster" width="100%">
+  </a>
+</p>
+
+<p align="center">
   <a href="training_images/project_poster/CS3308_02ML_poster.pdf"><strong>View project poster (PDF)</strong></a>
 </p>
 
