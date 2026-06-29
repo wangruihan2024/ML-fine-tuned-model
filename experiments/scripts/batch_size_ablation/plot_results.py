@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import csv
+from contextlib import suppress
 from pathlib import Path
 
 import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-
 
 EXP_DIR = Path(__file__).resolve().parent
 SUMMARY = EXP_DIR / "summary.csv"
@@ -23,10 +23,8 @@ def read_rows():
             if value == "":
                 row[key] = None
                 continue
-            try:
+            with suppress(ValueError):
                 row[key] = float(value)
-            except ValueError:
-                pass
     return rows
 
 

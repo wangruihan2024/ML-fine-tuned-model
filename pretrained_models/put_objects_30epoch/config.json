@@ -2,26 +2,34 @@
     "type": "smolvla",
     "n_obs_steps": 1,
     "input_features": {
-        "observation.images.image": {
+        "observation.images.cam_high": {
             "type": "VISUAL",
             "shape": [
                 3,
-                256,
-                256
+                480,
+                640
             ]
         },
-        "observation.images.image2": {
+        "observation.images.cam_left_wrist": {
             "type": "VISUAL",
             "shape": [
                 3,
-                256,
-                256
+                480,
+                640
+            ]
+        },
+        "observation.images.cam_right_wrist": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                480,
+                640
             ]
         },
         "observation.state": {
             "type": "STATE",
             "shape": [
-                8
+                14
             ]
         }
     },
@@ -29,7 +37,7 @@
         "action": {
             "type": "ACTION",
             "shape": [
-                7
+                14
             ]
         }
     },
@@ -37,13 +45,13 @@
     "use_amp": true,
     "use_peft": false,
     "push_to_hub": false,
-    "repo_id": "my-local-smolvla-libero-base-direct-5epoch-bs24-56975steps",
+    "repo_id": "piper-put-object-in-basket-smolvla-30epoch-bs72",
     "private": null,
     "tags": null,
     "license": null,
     "pretrained_path": "lerobot/smolvla_base",
     "chunk_size": 50,
-    "n_action_steps": 1,
+    "n_action_steps": 50,
     "normalization_mapping": {
         "VISUAL": "IDENTITY",
         "STATE": "MEAN_STD",
@@ -61,8 +69,8 @@
     "tokenizer_max_length": 48,
     "num_steps": 10,
     "use_cache": true,
-    "freeze_vision_encoder": false,
-    "train_expert_only": false,
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
     "train_state_proj": true,
     "optimizer_lr": 0.0001,
     "optimizer_betas": [

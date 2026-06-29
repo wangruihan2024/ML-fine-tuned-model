@@ -7,7 +7,6 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-
 BATCHES = [16, 24, 32, 48]
 LOG_FREQ = 50
 WARMUP_STEPS = 500
@@ -215,7 +214,9 @@ def main():
                 "final_lr": metric_rows[-1]["learning_rate"] if metric_rows else "",
                 "mean_gpu_util": mean(r["gpu_util"] for r in gpu_rows),
                 "p95_gpu_util": percentile([r["gpu_util"] for r in gpu_rows], 0.95),
-                "peak_memory_mib": max([r["memory_used_mib"] for r in gpu_rows if r["memory_used_mib"] is not None], default=None),
+                "peak_memory_mib": max(
+                    [r["memory_used_mib"] for r in gpu_rows if r["memory_used_mib"] is not None], default=None
+                ),
                 "mean_power_w": mean(r["power_w"] for r in gpu_rows),
                 "gpu_samples": len(gpu_rows),
             }
